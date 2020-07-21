@@ -1,0 +1,49 @@
+<div>
+    <app-navbar></app-navbar>
+
+
+    <div id="kontejner" class="container">
+    
+        <div *ngFor="let message of messages" id="ubaci" class="row">
+          
+          <div>
+            <p>{{message.replacedDate}}</p>
+          
+            <h3>{{message.sender.name}} {{message.sender.surname}}</h3>
+            <div>
+                &nbsp;
+            </div>
+            <p >{{message.text}}</p>
+           
+          </div>
+          <div>
+            
+          
+          </div>
+        </div>
+      </div>
+    
+      <div class="panel-footer">
+        <form (ngSubmit)="sendMessage()" [formGroup]="forma" class="form-style-9">
+          
+      
+    
+        <p>Sadrzaj:</p>
+        <p>
+          <textarea [(ngModel)] ="messageToSend.text" formControlName="text" id="sadrzaj"></textarea>
+        </p>
+    
+        <hr />
+        <button
+          id="posaljiPoruku"
+          type="submit"
+          class="btn btn-primary btn-block btn-large"
+         
+        >
+          Posalji
+        </button>
+        </form>
+      </div>
+
+
+</div>

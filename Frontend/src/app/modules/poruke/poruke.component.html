@@ -1,0 +1,47 @@
+<div>
+  <app-navbar></app-navbar>
+  <h2>Open Conversation</h2>
+  <div id="kontejner" class="container">
+    
+    <div *ngFor="let user of users" id="ubaci" class="row">
+      
+      <div>
+        
+       <a style="font-size: 30px; margin:10px;" [routerLink]="['/conversation', user.id]">{{ user.name }} {{ user.surname }}</a>
+      </div>
+      <div>
+        
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <form (ngSubmit)="sent()" [formGroup]="forma" class="form-style-9">
+      
+    Primalac: <select [(ngModel)] ="message.email" formControlName="email" style="width: 450px;"  id="orders">
+        
+        <option *ngFor="let user of dropdownUsers" [value]="user.loginInfo.email">
+          {{user.loginInfo.email}}
+        </option>
+      </select>
+      
+    <br />
+
+    <p>Sadrzaj:</p>
+    <p>
+      <textarea [(ngModel)] ="message.text" formControlName="text" id="sadrzaj"></textarea>
+    </p>
+
+    <hr />
+    <button
+      id="posaljiPoruku"
+      type="submit"
+      class="btn btn-primary btn-block btn-large"
+     
+    >
+      Posalji
+    </button>
+    </form>
+  </div>
+</div>

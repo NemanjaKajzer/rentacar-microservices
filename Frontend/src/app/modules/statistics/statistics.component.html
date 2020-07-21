@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<mat-form-field>
+  <mat-label>Statistics for:</mat-label>
+  <mat-select>
+    <mat-option  >
+      <div (click)="openMostTravelled()">Most travelled</div>
+    </mat-option>
+    <mat-option  >
+      <div (click)="openMostComments()">Most comments </div>
+    </mat-option>
+    <mat-option  >
+      <div (click)="openBestReview()">Best review</div>
+    </mat-option>
+  </mat-select>
+</mat-form-field>

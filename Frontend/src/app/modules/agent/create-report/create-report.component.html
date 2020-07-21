@@ -1,0 +1,44 @@
+<div>
+  <app-navbar></app-navbar>
+  <div style="float:left" class="userinfo">
+    <div id="left" class="col-md-8">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Osnovne informacije</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <p>Name: {{sessionService.ulogovaniKorisnik.name}}</p>
+          </div>
+          <div class="row">
+            <p>Surname: {{sessionService.ulogovaniKorisnik.surname}}</p>
+          </div>
+          <div class="row">
+            <p>Phone number: {{sessionService.ulogovaniKorisnik.phoneNumber}}</p>
+          </div>
+          <div class="row">
+            <p>E-mail adress: {{sessionService.ulogovaniKorisnik.loginInfo.email}}</p>
+          </div>
+          <div class="row">
+            <p>Username: {{sessionService.ulogovaniKorisnik.loginInfo.username}}</p>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 5px" id="right" class ="avatar">
+      <img class="rounded" src = "./assets/admin.png"/>
+    </div>
+  </div>
+
+  <div style="float:right;margin-right: 50%">
+    <div>
+      <h3>Enter report information</h3>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+      <input style="display: block" class="textbox input" type = "text" name="travelled" placeholder="Travelled distance (km)" [(ngModel)]="travelled">
+      <textarea style="display: block" class = "input" rows="20" name="comment" placeholder="Additional comment (optional)" cols="30" [(ngModel)]="comment"></textarea>
+      <input style="display: block" class="btn btn-success" type="submit" value="Finish"/>
+    </form>
+  </div>
+</div>

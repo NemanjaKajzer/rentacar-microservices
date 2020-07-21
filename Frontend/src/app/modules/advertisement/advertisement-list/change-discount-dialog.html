@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Change discount to:</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input type="number" matInput [(ngModel)]="this.data.discount" placeholder="New discount">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" style="background-color:darkred;color:white;height:40px;width:100px">Close</button>
+  <button mat-button [mat-dialog-close]="this.data.discount" (click)="onOkClick()" cdkFocusInitial style="background-color:green;color:white;height:40px;width:100px">Save</button>
+</div>

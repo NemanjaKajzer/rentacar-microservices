@@ -1,0 +1,12 @@
+<h3 style ="width: 300px;">Enter the details of the agent</h3>
+<form (ngSubmit)="onSubmit()" [formGroup]="forma">
+  <input style="display: block;width: 200px;" formControlName="name" class="textbox input" type = "text" name="name" placeholder="Name" [(ngModel)]="agent.name">
+  <input style="display: block;width: 200px" formControlName="surname" class="textbox input" type = "text" name="surname" placeholder="Surname" [(ngModel)]="agent.surname">
+  <input style="display: block; width: 200px" formControlName="username" class="textbox input" type = "text" name="username" placeholder="Username" [(ngModel)]="agent.username">
+  <input style="display: block; width: 200px" formControlName="email" class="textbox input" type = "text" name="email" placeholder="Email" [(ngModel)]="agent.email">
+  <input style="display: block;width: 200px" formControlName="jmbg" class="textbox input" type = "text" name="jmbg" placeholder="Jmbg" [(ngModel)]="agent.jmbg">
+  <input style="display: block; width: 200px" formControlName="phone" class="textbox input" type = "text" name="name" placeholder="Phone number" [(ngModel)]="agent.phone">
+  <input style="display: block; width: 200px" formControlName="adress" class="textbox input" type = "text" name="adress" placeholder="Adress" [(ngModel)]="agent.adress">
+  <input style="display: block; width: 200px" formControlName="bsregnum" class="textbox input" type = "text" name="bsregnum" placeholder="Business registration number" [(ngModel)]="agent.bsregnum">
+  <input style="display: block; width: 100px" class="btn btn-success" type="submit" value="Register"/>
+</form>

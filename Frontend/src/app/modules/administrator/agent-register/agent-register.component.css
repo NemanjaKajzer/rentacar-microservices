@@ -1,0 +1,13 @@
+.row {
+  padding-left: 6%;
+}
+
+.textbox{
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.input {
+  outline: none;
+  margin-bottom: 30px;
+}

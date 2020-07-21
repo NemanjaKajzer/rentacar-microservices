@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <a href="#" class="navbar-brand">RENT-A-CAR</a>
+        </div>
+        <div >
+          <div class="navbar-collapse collapse" id="mobile_menu">
+            <ul class="nav navbar-nav">
+
+              <li ><a href="#">Home</a></li>
+
+              <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">About One</a></li>
+                  <li><a href="#">About Two</a></li>
+                  <li><a href="#">About Three</a></li>
+                  <li><a href="#">About Four</a></li>
+                  <li><a href="#">About Five</a></li>
+                  <li><a href="#">About Six</a></li>
+                </ul>
+              </li>
+
+              <li><a [routerLink]="['/registracija']">Welcome</a></li>
+
+              <li><a [routerLink]="['/advertisement-list']">Advertisement List</a></li>
+              <li><a [routerLink]="['/advertisement']">DodajOglas</a></li>
+
+              <li><a [routerLink]="['/inbox']">Inbox</a></li>
+              <li><a [routerLink]="['/requests']">Requests</a></li>
+              <li><a [routerLink]="['/history']">History</a></li>
+              <li><a [routerLink]="['/statistics']">Statistics</a></li>
+              <li><a [routerLink]="['/reserve']">Reserve</a></li>
+
+              <li> <a [routerLink]="['/shoppingCart']"> <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
+
+              <!--      <li *ngIf="sessionService.ulogovaniKorisnik === undefined"><a [routerLink]="['/registracija']">Welcome</a></li>
+                     <li *ngIf="sessionService.ulogovaniKorisnik === undefined"><a [routerLink]="['/advertisement-list']">Advertisement List</a></li>
+                     <li *ngIf="sessionService.ulogovaniKorisnik === undefined"><a [routerLink]="['/advertisement']">DodajOglas</a></li>
+                  <li *ngIf="sessionService.ulogovaniKorisnik === undefined"><a [routerLink]="['/inbox']">Inbox</a></li>
+                   <li *ngIf="sessionService.ulogovaniKorisnik === undefined"><a [routerLink]="['/requests']">Requests</a></li>
+                    <li *ngIf="sessionService.isEndUser"><a [routerLink]="['/shoppingCart']"> -->
+
+
+              <li *ngIf="sessionService.isAdmin" class = "button" (click)="showRequests()"><a>Requests</a></li>
+              <li *ngIf="sessionService.isAdmin" class = "button" (click)="showAgentReg()"><a>Register Agents</a></li>
+              <li *ngIf="sessionService.isAdmin" class = "button" (click)="manageUsers()"><a>Manage users</a></li>
+              <li *ngIf="sessionService.isAdmin" class = "button" (click)="manageComments()"><a>Manage comments</a></li>
+              <li *ngIf="sessionService.isAdmin" class = "button" (click)="codebook()"><a>Codebook</a></li>
+              <li *ngIf="sessionService.isAgent" class = "button" (click)="createReport()"><a>Create Report</a></li>
+              <li *ngIf="sessionService.isAgent" class = "button" [routerLink]="['/advertisement-list']"><a>My advertisements</a></li>
+            </ul>
+            <!--          <ul class="nav navbar-nav">-->
+            <!--            <li>-->
+            <!--              <form action="" class="navbar-form">-->
+            <!--                <div class="form-group">-->
+            <!--                  <div class="input-group">-->
+            <!--                    <input type="search" name="search" id="" placeholder="Search Anything Here..." class="form-control">-->
+            <!--                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+            <!--              </form>-->
+            <!--            </li>-->
+            <!--          </ul>-->
+            <ul class="nav navbar-nav navbar-right">
+              <li *ngIf="sessionService.ulogovaniKorisnik === undefined || sessionService.pwChanging === true" class = "button" (click)="showRegister()" ><a><span class="glyphicon glyphicon-user"></span> Register</a></li>
+              <li *ngIf="sessionService.ulogovaniKorisnik === undefined || sessionService.pwChanging === true" class = "button" (click)="showLogin()" ><a><span class="fa fa-sign-in "></span> Sign in</a></li>
+              <li  class = "button" (click)="logOut()" ><a><span class="fa fa-sign-out "></span> Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

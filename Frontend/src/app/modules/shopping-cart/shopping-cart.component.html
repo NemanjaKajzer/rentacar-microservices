@@ -1,0 +1,79 @@
+<div class="mat-elevation-z8">
+  <app-navbar></app-navbar>
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+        <!-- Name Column -->
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row">{{row.advertisementCreationDTO.name}}</td>       <!-- row.model -->
+        </ng-container>
+
+        <ng-container matColumnDef="model">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
+          <td mat-cell *matCellDef="let row">{{row.advertisementCreationDTO.model}}</td>       <!-- row.model -->
+        </ng-container>
+
+        <ng-container matColumnDef="brand">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
+          <td mat-cell *matCellDef="let row">{{row.advertisementCreationDTO.brand}}</td>       <!-- row.brand -->
+        </ng-container>
+
+        <ng-container matColumnDef="fuelType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel Type</th>
+          <td mat-cell *matCellDef="let row">{{row.advertisementCreationDTO.fuelType}}</td>    <!-- row.fuelType -->
+        </ng-container>
+
+        <ng-container matColumnDef="transType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Transmission Type</th>
+          <td mat-cell *matCellDef="let row">{{row.advertisementCreationDTO.transType}}</td>    <!-- row.transType -->
+        </ng-container>
+
+        <ng-container matColumnDef="carClass">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Car Class</th>
+          <td mat-cell *matCellDef="let row">{{row.advertisementCreationDTO.carClass}}</td>    <!-- row.carClass -->
+        </ng-container>
+
+     
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+          <td mat-cell *matCellDef="let row">{{row.advertisementCreationDTO.price}}</td>              <!-- row.price -->
+        </ng-container>
+
+
+
+    <ng-container  matColumnDef="checkbox">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Send Group Request</th>
+      <td mat-cell *matCellDef="let row">  <input *ngIf="row.owner==true" type="checkbox"  [(ngModel)]="row.together" id="checkBox" name="checkBox"></td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="button">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Add to cart</th>
+      <td mat-cell *matCellDef="let row"><button style="background-color:red;color:white;height:40px;width:100px" (click)="remove(row)">Remove</button></td>
+    </ng-container>
+
+
+
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+
+
+
+
+  </table>
+
+
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+
+
+  <button style="background-color:green;color:white;height:40px;width:100px" (click)="sendRequest()">Add</button>
+
+</div>

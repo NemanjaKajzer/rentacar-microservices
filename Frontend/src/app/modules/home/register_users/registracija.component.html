@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="forma" class="form-style-9">
+    <ul>
+      <li>
+        <input [(ngModel)]="endUser.name" formControlName="name" name="name" class="field-style field-full align-none"
+          placeholder="Name"/>
+        <mat-error *ngIf="f.name?.touched && f.name?.errors">
+          <div *ngIf="f.name.errors?.required">Name is obligatory</div>
+          <div *ngIf="f.name.errors?.pattern">Name must contain only letters and start with upper case</div>
+        </mat-error>
+      </li>
+      <li>
+        <input [(ngModel)]="endUser.surname" formControlName="surname" name="surname"
+          class="field-style field-full align-none" placeholder="Surname" />
+        <mat-error *ngIf="f.surname?.touched && f.surname?.errors">
+          <div *ngIf="f.surname.errors?.required">Surname is obligatory</div>
+          <div *ngIf="f.surname.errors?.pattern">Surname must contain only letters and start with upper case</div>
+        </mat-error>
+      </li>
+      <li>
+        <input [(ngModel)]="endUser.loginInfo.username" formControlName="username" name="username"
+          class="field-style field-full align-none" placeholder="Username" />
+        <mat-error *ngIf="f.username?.touched && f.username?.errors">
+          <div *ngIf="f.username.errors?.required">Username is obligatory </div>
+          <div *ngIf="f.username.errors?.minLength">Username must contain at least 2 characters</div>
+          <div *ngIf="f.username.errors?.maxLength">Username must not contain more than 12 characters</div>
+          <div *ngIf="f.username.errors?.pattern">Username must not contain more than 12 characters</div>
+        </mat-error>
+      </li>
+      <li>
+        <input [(ngModel)]="endUser.loginInfo.email" formControlName="email" name="email"
+          class="field-style field-full align-none" placeholder="E-mail" />
+        <mat-error *ngIf="f.email?.touched && f.email?.errors">
+          <div *ngIf="f.email.errors?.required">Email is obligatory </div>
+          <div *ngIf="f.email.errors?.email">Email is incorrect </div>
+          <div *ngIf="f.email.errors?.pattern">Email must be in the following format: 'xxx@yyy.com'</div>
+        </mat-error>
+      </li>
+      <li>
+        <input [(ngModel)]="endUser.loginInfo.password" formControlName="password" type="password" name="password"
+          class="field-style field-full align-none" placeholder="Password" />
+        <mat-error *ngIf="f.password?.touched && f.password?.errors">
+          <div *ngIf="f.password.errors?.required">Password is obligatory </div>
+          <div *ngIf="f.password.errors?.minLength">Password must contain at least 8 characters</div>
+          <div *ngIf="f.password.errors?.pattern">Password must contain at least one uppercase letter, one lowercase
+            letter, one number and one special character and be at least 8 characters long</div>
+        </mat-error>
+      </li>
+      <li>
+        <input [(ngModel)]="endUser.jmbg" formControlName="jmbg" name="jmbg"
+          class="field-style field-full align-none" placeholder="JMBG" />
+        <mat-error *ngIf="f.jmbg?.touched && f.jmbg?.errors">
+          <div *ngIf="f.jmbg.errors?.required">JMBG is required</div>
+          <div *ngIf="f.jmbg.errors?.pattern">JMBG must contain exactly 13 digits</div>
+          <div *ngIf="f.jmbg.errors?.minLength">JMBG must contain exactly 13 digits</div>
+        </mat-error>
+      </li>
+      <!-- <li>
+        <input [(ngModel)]="endUser.jmbg" formControlName="jmbg" name="jmbg" class="field-style field-full align-none"
+          placeholder="Unique person number" />
+        <mat-error *ngIf="f.jmbg?.touched && f.jmbg?.errors">
+          <div *ngIf="f.jmbg.errors?.required">Jmbg is obligatory </div>
+          <div *ngIf="f.jmbg.errors?.minLength">Jmbg must contain at least 13 digits</div>
+        </mat-error>
+      </li> -->
+      <li>
+        <input [(ngModel)]="endUser.phoneNumber" formControlName="phoneNumber" name="phoneNumber"
+          class="field-style field-full align-none" placeholder="Phone Number" />
+        <mat-error *ngIf="f.phoneNumber?.touched && f.phoneNumber?.errors">
+          <div *ngIf="f.phoneNumber.errors?.required">Phone number is obligatory </div>
+          <div *ngIf="f.phoneNumber.errors?.pattern">Phone cannot contain special characters and letters and must
+            contain 9-10 digits</div>
+          <div *ngIf="f.phoneNumber.errors?.minLength">Phone number must contain at least 9 digits</div>
+          <div *ngIf="f.phoneNumber.errors?.maxLength">Phone number must not contain more than 10 digits</div>
+        </mat-error>
+      </li>
+      <li>
+        <input type="submit" value="Register" />
+      </li>
+    </ul>
+  </form>
+</div>

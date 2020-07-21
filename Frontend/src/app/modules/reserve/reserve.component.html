@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<form (ngSubmit)="onSubmit()" [formGroup]="reserveForm" style="width: 20%; float: left; margin: 20px;">
+    <div>
+    <mat-form-field>
+      <mat-label>Advertisement</mat-label>
+      <mat-select [(value)] = "this.adId"  name = "advId" formControlName = "advId"> 
+        <mat-option *ngFor="let ad of advertisements" value={{ad.id}} >
+          {{ad.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+  <div>
+    <input type="datetime-local" formControlName="timeFrom" name="timeFrom"
+           class="field-style field-full align-none" [(ngModel)]="timeFrom"  />
+  </div>
+  <div>
+    <input type="datetime-local" formControlName="timeTo" name="timeTo" class="field-style field-full align-none"
+           [(ngModel)]="timeTo"   />
+  </div>
+    <div>
+  <button mat-button style="background-color:green;color:white;height:40px;width:100px"
+          type = "submit">Save</button>
+    </div>
+</form>

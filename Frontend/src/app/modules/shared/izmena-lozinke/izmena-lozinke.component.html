@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div>
+  <form style = "text-align: center" (ngSubmit)="onSubmit()" [formGroup]="forma" class="form-style-9">
+    <ul>
+      <li>
+        <input [(ngModel)] = "pw" formControlName="pw" type = "password" name="password" class="field-style field-full align-none" placeholder="Enter new password" />
+      </li>
+      <li>
+        <input [(ngModel)] = "reppw" formControlName="pw" type="password" name="repeat" class="field-style field-full align-none" placeholder="Re-enter your new password" />
+      </li>
+      <li>
+        <input class = "login" type = "submit" value="Log-in" />
+      </li>
+    </ul>
+  </form>
+</div>

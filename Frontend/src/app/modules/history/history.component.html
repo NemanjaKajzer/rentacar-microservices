@@ -1,0 +1,111 @@
+<div>
+    <app-navbar></app-navbar>
+  
+  
+    <select  (change)="onChange($event)"  style="width: 450px;" name="carClass"
+    class="field-style field-full align-none" placeholder="Car Class">
+    <option value="PENDING">PENDING</option>
+    <option value="RESERVED">RESERVED</option>
+    <option value="CANCELED">CANCELED</option>
+    <option value="PAID">PAID</option>
+  </select>
+
+    <div class="form" *ngFor="let group of groups">
+      
+      <table>
+        <div>
+          <tr>
+            <th>
+              Name
+            </th>
+  
+            <th>
+              Model
+            </th>
+  
+            <th>
+              Brand
+            </th>
+  
+            <th>
+              Fuel Type
+            </th>
+  
+            <th>
+              Trans Type
+            </th>
+  
+            <th>
+              Travelled
+            </th>
+  
+            <th>
+              Price
+            </th>
+  
+            <th>
+              TimeFrom
+            </th>
+  
+            <th>
+              TimeTo
+            </th>
+          </tr>
+        </div>
+  
+        
+        <div *ngFor="let request of requests">
+         
+          <tr *ngIf="group == request.groupId"  >
+            <td>
+              {{ request.advertisement.name }}
+            </td>
+  
+            
+            <td>
+              {{request.advertisement.model }}
+            </td>
+  
+            <td>
+              {{ request.advertisement.brand }}
+            </td>
+  
+            <td>
+              {{ request.advertisement.fuelType }}
+            </td>
+  
+            <td>
+              {{ request.advertisement.transType }}
+            </td>
+  
+            <td>
+              {{ request.advertisement.travelled }}
+            </td>
+  
+            <td>
+              {{ request.advertisement.price }}
+            </td>
+  
+            <td>
+              {{request.timeFrom}}
+            </td>
+            
+            <td>
+              {{request.timeTo}}
+            </td>
+          </tr>
+        </div>
+        
+        
+          <button *ngIf="checker==0"
+        style="background-color: red; color: white; height: 40px; width: 100px;"
+        (click)="cancelRequest(group)"
+      >
+        Cancel Request
+      </button>
+        
+      </table>
+      
+    </div>
+  </div>
+  

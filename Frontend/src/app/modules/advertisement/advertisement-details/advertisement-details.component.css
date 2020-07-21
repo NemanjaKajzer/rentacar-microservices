@@ -1,0 +1,29 @@
+.rating-list li {
+  float: right;
+  color: #ddd;
+  padding: 10px 5px;
+
+}
+
+li:hover{
+  cursor: pointer;
+}
+
+.rating-list li:hover,
+.rating-list li:hover ~ li {
+  color: #ffd700;
+}
+
+.rating-list {
+  display: inline-block;
+  list-style: none;
+}
+
+input{
+  display:block;
+  margin-top: 5px;
+}
+
+.rating-list li.selected {
+  color: #ffd700;
+}

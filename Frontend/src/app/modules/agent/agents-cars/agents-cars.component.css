@@ -1,0 +1,11 @@
+.button-class{
+  float:right;
+  width: 50%;
+  height: 100%;
+  display:block;
+}
+
+.card-body {
+  float: left;
+  margin-left: 15px;
+}

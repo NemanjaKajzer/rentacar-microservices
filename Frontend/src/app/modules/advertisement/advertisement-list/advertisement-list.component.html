@@ -1,0 +1,185 @@
+<div class="mat-elevation-z8">
+  <app-navbar></app-navbar>
+
+  <h2>Filter oglasa</h2>
+  <form (ngSubmit)="filter()" [formGroup]="filterForm" class="form-style-9"
+    style="width: 20%; float: left; margin: 20px;">
+    <ul>
+
+      <li>
+        <select [(ngModel)]="this.brand" formControlName="brand" name="brand" class="field-style field-full align-none"
+          placeholder="Brand">
+          <option selected="selected">Choose a car brand</option>
+          <option *ngFor="let carBrand of carBrands">{{carBrand.name}}</option>
+        </select>
+      </li>
+      <li>
+        <select [(ngModel)]="this.model" formControlName="model" name="model" class="field-style field-full align-none"
+          placeholder="Model">
+          <option selected="selected">Choose a car model</option>
+          <option *ngFor="let model of carModels">{{model.name}}</option>
+        </select>
+      </li>
+      <li>
+        <select [(ngModel)]="this.fuelType" formControlName="fuelType" name="fuelType"
+          class="field-style field-full align-none" placeholder="Fuel Type">
+          <option selected="selected">Choose a fuel type</option>
+          <option *ngFor="let fuel of carFuels">{{fuel.name}}</option>
+        </select>
+      </li>
+      <li>
+        <select [(ngModel)]="this.transmissionType" formControlName="transmissionType" name="transmissionType"
+          class="field-style field-full align-none" placeholder="Transmission Type">
+          <option selected="selected">Choose a gearshift type</option>
+          <option *ngFor="let gearshift of carGearshifts">{{gearshift.name}}</option>
+        </select>
+      </li>
+      <li>
+        <select [(ngModel)]="this.carClass" formControlName="carClass" name="carClass"
+          class="field-style field-full align-none" placeholder="Car Class">
+          <option selected="selected">Choose a car class</option>
+          <option *ngFor="let carClass of carClasses">{{carClass.name}}</option>
+        </select>
+      </li>
+
+
+      <li>
+        <input [(ngModel)]="this.filterAdsDTO.travelledFrom" formControlName="travelledFrom" name="travelledFrom"
+          class="field-style field-full align-none" placeholder="Travelled from" />
+      </li>
+
+      <li>
+        <input [(ngModel)]="this.filterAdsDTO.travelledTo" formControlName="travelledTo" name="travelledTo"
+          class="field-style field-full align-none" placeholder="Travelled to" />
+      </li>
+
+      <li>
+        <input [(ngModel)]="this.filterAdsDTO.priceFrom" formControlName="priceFrom" name="priceFrom"
+          class="field-style field-full align-none" placeholder="Price from" />
+      </li>
+
+      <li>
+        <input [(ngModel)]="this.filterAdsDTO.priceTo" formControlName="priceTo" name="priceTo"
+          class="field-style field-full align-none" placeholder="Price to" />
+      </li>
+
+      <li>
+        <input [(ngModel)]="this.filterAdsDTO.carSeats" formControlName="carSeats" name="carSeats"
+          class="field-style field-full align-none" placeholder="Car seats" />
+      </li>
+      <li>
+        <input type="datetime-local" formControlName="timeFrom" name="timeFrom"
+          class="field-style field-full align-none" [(ngModel)]="this.filterAdsDTO.timeFrom" />
+      </li>
+
+      <li>
+        <input type="datetime-local" formControlName="timeTo" name="timeTo" class="field-style field-full align-none"
+          [(ngModel)]="this.filterAdsDTO.timeTo" />
+      </li>
+
+
+      <li>
+        <button mat-button style="background-color:green;color:white;height:40px;width:100px"
+          type="submit">Filter</button>
+      </li>
+    </ul>
+  </form>
+
+
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
+      <td mat-cell *matCellDef="let row">{{row.model}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="brand">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
+      <td mat-cell *matCellDef="let row">{{row.brand}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fuelType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel Type</th>
+      <td mat-cell *matCellDef="let row">{{row.fuelType}}</td>
+    </ng-container>
+
+    <!--<ng-container matColumnDef="transType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Transmission Type</th>
+      <td mat-cell *matCellDef="let row">{{row.transType}}</td>
+    </ng-container>-->
+
+    <!--<ng-container matColumnDef="carClass">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Car Class</th>
+      <td mat-cell *matCellDef="let row">{{row.carClass}}</td>
+    </ng-container>-->
+
+    <ng-container matColumnDef="travelled">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Travelled</th>
+      <td mat-cell *matCellDef="let row">{{row.travelled}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price per day</th>
+      <td mat-cell *matCellDef="let row">{{row.price}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="discountPrice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price with discount</th>
+      <td mat-cell *matCellDef="let row" matTooltip="Price per day for renting a car for 30 days or more.">
+        {{row.priceWithDiscount}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="carSeats">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Car Seats</th>
+      <td mat-cell *matCellDef="let row">{{row.carSeats}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Add to cart</th>
+      <td mat-cell *matCellDef="let row"><button mat-button
+          style="background-color:green;color:white;height:40px;width:100px" (click)="save(row)">Add</button></td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Details</th>
+      <td mat-cell *matCellDef="let row"><button mat-button
+          style="background-color:royalblue;color:white;height:40px;width:100px"
+          (click)="showDetails(row)">Details</button></td>
+    </ng-container>
+
+    <ng-container matColumnDef="changeDiscount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Change discount</th>
+      <td mat-cell *matCellDef="let row"><button mat-button
+          style="background-color:crimson;color:white;height:40px;width:100px"
+          (click)="changeDiscount(row)">Update</button></td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Show pictures</th>
+      <td mat-cell *matCellDef="let row"><button mat-button
+          style="background-color:teal;color:white;height:40px;width:100px"
+          (click)="openDialog(row.pictures)">Pictures</button></td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+  <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+
+</div>
+
+
+<!-- <button mat-raised-button [routerLink]="['/advertisement']">Add</button> -->

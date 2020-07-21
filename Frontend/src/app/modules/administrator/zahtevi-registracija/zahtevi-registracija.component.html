@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-danger">
+        <h4 class="card-title">Requests</h4>
+      </div>
+      <div *ngFor="let enduser of endusers">
+        <div class = "zahtev">
+          <div class="card-body">
+            <div class="row">
+              <p>E-mail adress: {{enduser.loginInfo.email}}</p>
+            </div>
+            <div class="row">
+              <p>Username: {{enduser.loginInfo.username}} </p>
+            </div>
+            <div class="row">
+              <p>JMBG: {{enduser.jmbg}} </p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="button-class">
+            <button class = "btn btn-success buttons" (click)="accept(enduser)" >Prihvati</button>
+            <button class = "btn btn-danger buttons" (click)="reject(enduser)" >Odbij</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.page {
+  border: 5px solid red;
+}
+
+.content {
+  display: inline;
+  margin-left: 20px;
+}
+
+.userinfo{
+
+  margin-left: 2%;
+  width: 25%;
+  border: 2px solid lightgray;
+  border-radius: 5%;
+  height: 190px;
+}
+
+.rounded {
+  border-radius: 50%;
+  width: 157px;
+  height: 157px;
+  text-align: center;
+}
+
+.row {
+  padding-left: 6%;
+}
+
+.textbox{
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.input {
+  outline: none;
+  margin-bottom: 30px;
+}

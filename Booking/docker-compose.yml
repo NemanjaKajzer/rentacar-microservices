@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+ 
+
+  book-service:
+    build: ./Booking
+    restart: always
+    image: booking-image 
+    volumes:
+    - $USERPROFILE/.m2:/root/.m2
+    ports:
+    - "8086:8086"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+

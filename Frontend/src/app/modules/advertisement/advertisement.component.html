@@ -1,0 +1,72 @@
+<div>
+  <app-navbar></app-navbar>
+<form (ngSubmit)="onSubmit()" [formGroup]="forma" class="form-style-9">
+  <ul>
+  <li>
+      <input [(ngModel)] = "this.advertisement.name" formControlName="name" name="name" class="field-style field-full align-none" placeholder="Name" />
+  </li>
+
+  <li>
+    <select [(ngModel)] = "this.model" formControlName="fuelType" name="fuelType" class="field-style field-full align-none" placeholder="Fuel Type" >
+      <option selected="selected">Choose a car model</option>
+      <option *ngFor="let model of carModels">{{model.name}}</option>
+    </select>
+  </li>
+
+  <li>
+    <select [(ngModel)] = "this.brand" formControlName="fuelType" name="fuelType" class="field-style field-full align-none" placeholder="Fuel Type" >
+      <option selected="selected">Choose a car brand</option>
+      <option *ngFor="let carBrand of carBrands">{{carBrand.name}}</option>
+    </select>
+  </li>
+
+  <li>
+    <select [(ngModel)] = "this.fuelType" formControlName="fuelType" name="fuelType" class="field-style field-full align-none" placeholder="Fuel Type" >
+      <option selected="selected">Choose a fuel type</option>
+      <option *ngFor="let fuel of carFuels">{{fuel.name}}</option>
+    </select>
+  </li>
+
+  <li>
+    <select [(ngModel)] = "this.transType" formControlName="transType" name="transType" class="field-style field-full align-none" placeholder="Transmission Type" >
+      <option selected="selected">Choose a gearshift type</option>
+      <option *ngFor="let gearshift of carGearshifts">{{gearshift.name}}</option>
+    </select>
+  </li>
+
+  <li>
+    <select [(ngModel)] = "this.carClass" formControlName="carClass" name="carClass" class="field-style field-full align-none" placeholder="Car Class" >
+      <option selected="selected">Choose a car class</option>
+      <option *ngFor="let carClass of carClasses">{{carClass.name}}</option>
+    </select>
+  </li>
+
+  <li>
+    <input [(ngModel)] = "this.advertisement.travelled" formControlName="travelled"  name="travelled" class="field-style field-full align-none" placeholder="Travelled" />
+  </li>
+
+  <li>
+    <input [(ngModel)] = "this.advertisement.price" formControlName="price" name="price" class="field-style field-full align-none" placeholder="Price" />
+  </li>
+
+  <li>
+    <input [(ngModel)] = "this.advertisement.discount" formControlName="discount" name="discount" class="field-style field-full align-none" placeholder="Discount" />
+  </li>
+
+  <li>
+    <input [(ngModel)] = "this.advertisement.carSeats" formControlName="carSeats" name="carSeats" class="field-style field-full align-none" placeholder="Car seats" />
+  </li>
+
+  <li>
+    <input color = "primary" mat-raised-button type="file" #Image accept="image/*" multiple="multiple" (change)="onFileSelected($event)" value="Select picture" />
+  </li>
+
+
+
+  <li>
+    <input type="submit" value="Add" />
+  </li>
+  </ul>
+  </form>
+
+</div>

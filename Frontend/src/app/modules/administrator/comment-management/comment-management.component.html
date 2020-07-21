@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-danger">
+        <h4 class="card-title">Pending comments</h4>
+      </div>
+      <div style="width: 50%;" *ngFor="let comment of comments">
+        <div class = "zahtev">
+          <div class="card-body">
+            <div class="row">
+              <p>Posted by: {{comment.userMail}}</p>
+            </div>
+            <div class="row">
+              <p>Comment: {{comment.comment}} </p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="button-class">
+            <button class = "btn btn-success buttons" (click)="approve(comment)" >Approve</button>
+            <button style="margin-left: 10px" class = "btn btn-danger buttons" (click)="delete(comment)" >Delete</button>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

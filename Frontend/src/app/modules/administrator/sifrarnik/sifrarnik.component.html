@@ -1,0 +1,47 @@
+<div>
+  <div style="float:left; margin-left: 30px">
+    <h3>New car detail</h3>
+    <form (ngSubmit)="onSubmit()">
+      <label class = "form">Car detail code</label>
+      <input name="code" [(ngModel)]="newCarDetail.code" class = "form" style="border:none; border-bottom: 1px solid gray" type = 'text' placeholder="Element code">
+      <label class = "form">Car detail name</label>
+      <input name="name" [(ngModel)]="newCarDetail.name" class = "form" style="border:none; border-bottom: 1px solid gray" type = 'text' placeholder="Element name">
+      <label class = "form">Type of car detail</label>
+      <select name="type" [(ngModel)]="newCarDetail.type" class = "form">
+        <option selected="selected">Car Class</option>
+        <option>Car Model</option>
+        <option>Fuel</option>
+        <option>Brand</option>
+        <option>Gearshift</option>
+      </select>
+      <input class = "form" class="btn btn-success" style="margin-top: 20px" type="submit" value="Add">
+    </form>
+  </div>
+  <div style="float:right; margin-right: 5%">
+    <div>
+      <span>Existing car details</span>
+      <select #selectElement (change)="filter(selectElement.value)" style="display: inline; margin-left: 200px ">
+        <option>All</option>
+        <option>Car Class</option>
+        <option>Car Model</option>
+        <option>Fuel</option>
+        <option>Brand</option>
+        <option>Gearshift</option>
+      </select>
+    </div>
+
+    <table>
+      <tr>
+        <th>Car detail name</th>
+        <th>Car detail code</th>
+        <th>Car detail type</th>
+      </tr>
+      <tr style="margin-bottom: 5px" *ngFor="let item of datasource">
+        <td>{{item.name}}</td>
+        <td>{{item.code}}</td>
+        <td>{{item.type}}</td>
+        <td><button class = "btn btn-danger" (click)="delete(item)">Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

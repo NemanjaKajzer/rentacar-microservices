@@ -1,0 +1,19 @@
+.form {
+  display: block;
+}
+
+input:focus {
+  outline: none;
+}
+
+input{
+  margin-bottom: 15px;
+}
+
+label{
+  margin-right: 20px;
+}
+
+th, td{
+  padding-right: 15px;
+}

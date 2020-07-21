@@ -1,0 +1,35 @@
+textarea {
+    resize: none;
+    height:70px;
+    width:450px;
+ }
+
+.panel-footer{
+    width:800px;
+    margin:0 auto;
+    font-size:15px;
+    text-align:left;
+    vertical-align:middle;
+    background-color:whitesmoke;
+    width:500px;
+    border: 2px solid rebeccapurple;
+}
+
+#posaljiPoruku{
+    height:30px;
+    width:150px;
+}
+
+.container{
+    float: left;
+    width: 20%;
+    margin:20px;
+
+}
+.row{
+    border: 2px solid black;
+   
+}
+
+
+

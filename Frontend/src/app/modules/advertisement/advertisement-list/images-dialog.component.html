@@ -1,0 +1,13 @@
+<div >
+    <mat-label>Images</mat-label>
+  <!-- <ng-image-slider [images] = this.data #nav></ng-image-slider>-->
+  <div *ngFor="let item of this.data">
+  <img id="slika" alt="Dodaj sliku" [src]=item style="width:300px;height:300px;float: left;">
+  </div>
+
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>
