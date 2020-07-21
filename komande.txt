@@ -1,0 +1,9 @@
+npm install font-awesome --save
+
+u appRouting rute
+
+ng g c modules/naziv
+
+u appModule treba ubacivati svaku novu komponentu
+
+ng generate @angular/material:table <component-name>

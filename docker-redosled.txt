@@ -1,0 +1,26 @@
+menja se kontroler, mejn klasa i app/bootstrap properties
+
+
+VALJA KAD SE IZMENJA DOSTA STVARI
+
+docker stop $(docker ps -a -q)   					stopira sve kontejnere
+docker rm $(docker ps -a -q)  						uklanja sve kontejnere
+docker rmi -f $(docker images -a -q) 				uklanja sve slike
+
+
+
+UBIJ KONKRETAN
+
+docker-compose stop advert-service 
+docker-compose stop auth-service 
+docker-compose stop book-service 
+docker-compose stop message-service 
+
+
+
+AKO HOCES SAMO JEDAN SERVIS DA RESTARTUJES
+
+docker-compose up --detach --build auth-service
+docker-compose up --detach --build advert-service
+docker-compose up --detach --build book-service
+docker-compose up --detach --build 
